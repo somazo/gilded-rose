@@ -89,4 +89,55 @@ describe("Gilded Rose", () => {
     gildedRose.updateQuality();
     expect(items[0].quality).toBeLessThanOrEqual(50);
   });
+
+  it("Sulfuras, being a legendary item, never has to be sold or decreases in Quality", () => {
+    const initSellIn = 10;
+    const initQuality = 50;
+    const gildedRose = new GildedRose([
+      new Item("Sulfuras, Hand of Ragnaros", initSellIn, initQuality),
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].sellIn).toBe(initSellIn);
+    expect(items[0].quality).toBe(initQuality);
+
+    gildedRose.updateQuality();
+    expect(items[0].sellIn).toBe(initSellIn);
+    expect(items[0].quality).toBe(initQuality);
+  });
+
+  it("Backstage passes increases in Quality as its SellIn value approaches; Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert", () => {
+    const testPasses = (prevSellIn: number, prevQuality: number) => {
+      if (prevSellIn <= 0) {
+        expect(items[0].quality).toBe(0);
+        return;
+      }
+      if (prevSellIn <= 5) {
+        expect(items[0].quality).toBe(prevQuality + 3);
+        return;
+      }
+      if (prevSellIn <= 10) {
+        expect(items[0].quality).toBe(prevQuality + 2);
+        return;
+      }
+      expect(items[0].quality).toBe(prevQuality + 1);
+    };
+    const initSellIn = 20;
+    const initQuality = 1;
+    let prevSellIn;
+    let prevQuality;
+    const gildedRose = new GildedRose([
+      new Item(
+        "Backstage passes to a TAFKAL80ETC concert",
+        initSellIn,
+        initQuality
+      ),
+    ]);
+    const items = gildedRose.items;
+    for (let i = 2; i < 30; i++) {
+      prevSellIn = items[0].sellIn;
+      prevQuality = items[0].quality;
+      gildedRose.updateQuality();
+      testPasses(prevSellIn, prevQuality);
+    }
+  });
 });
