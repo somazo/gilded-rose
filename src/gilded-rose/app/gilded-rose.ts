@@ -18,37 +18,31 @@ const specialItems = {
 
 const updateBrie = (item: Item) => {
   if (item.quality < 50) {
-    item.quality = item.quality + 1;
+    item.quality++;
   }
 
-  item.sellIn = item.sellIn - 1;
+  item.sellIn--;
 
   if (item.sellIn < 0 && item.quality < 50) {
-    item.quality = item.quality + 1;
+    item.quality++;
   }
 };
 
 const updatePass = (item: Item) => {
   if (item.quality < 50) {
-    item.quality = item.quality + 1;
-    if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-      if (item.sellIn < 11) {
-        if (item.quality < 50) {
-          item.quality = item.quality + 1;
-        }
-      }
-      if (item.sellIn < 6) {
-        if (item.quality < 50) {
-          item.quality = item.quality + 1;
-        }
-      }
+    item.quality++;
+    if (item.sellIn < 11) {
+      item.quality++;
+    }
+    if (item.sellIn < 6) {
+      item.quality++;
     }
   }
 
-  item.sellIn = item.sellIn - 1;
+  item.sellIn--;
 
   if (item.sellIn < 0) {
-    item.quality = item.quality - item.quality;
+    item.quality = 0;
   }
 };
 
@@ -59,13 +53,13 @@ const updateSulfuras = (item: Item) => {
 const updateOther = (item: Item) => {
   const degradeQty = item.name.startsWith("Conjured ") ? 2 : 1;
   if (item.quality > 0) {
-    item.quality = item.quality - degradeQty;
+    item.quality -= degradeQty;
   }
 
-  item.sellIn = item.sellIn - 1;
+  item.sellIn--;
 
   if (item.sellIn < 0 && item.quality > 0) {
-    item.quality = item.quality - degradeQty;
+    item.quality -= degradeQty;
   }
 };
 
