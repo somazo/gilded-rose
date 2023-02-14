@@ -55,14 +55,15 @@ const updatePass = (item: Item) => {
 const updateSulfuras = (item: Item) => {};
 
 const updateOther = (item: Item) => {
+  const degradeQty = item.name.startsWith("Conjured ") ? 2 : 1;
   if (item.quality > 0) {
-    item.quality = item.quality - 1;
+    item.quality = item.quality - degradeQty;
   }
 
   item.sellIn = item.sellIn - 1;
 
   if (item.sellIn < 0 && item.quality > 0) {
-    item.quality = item.quality - 1;
+    item.quality = item.quality - degradeQty;
   }
 };
 
