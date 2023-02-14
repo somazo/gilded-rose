@@ -52,7 +52,9 @@ const updatePass = (item: Item) => {
   }
 };
 
-const updateSulfuras = (item: Item) => {};
+const updateSulfuras = (item: Item) => {
+  item.quality = 80;
+};
 
 const updateOther = (item: Item) => {
   const degradeQty = item.name.startsWith("Conjured ") ? 2 : 1;
