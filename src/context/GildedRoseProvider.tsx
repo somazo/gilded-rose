@@ -1,10 +1,16 @@
 import { ReactNode, useCallback, useMemo, useState } from "react";
 import { GildedRose, Item } from "../gilded-rose/app/gilded-rose";
+import { gildedRoseData } from "../gilded-rose/data/gilded-rose-data";
 import { GildedRoseContext } from "./GildedRoseContext";
 
 export const GildedRoseProvider = ({ children }: { children?: ReactNode }) => {
   const gildedRose = useMemo(
-    () => new GildedRose([new Item("foo", 10, 10)]),
+    () =>
+      new GildedRose(
+        gildedRoseData.map(
+          ({ name, sellIn, quality }) => new Item(name, sellIn, quality)
+        )
+      ),
     []
   );
   const [items, setItems] = useState(gildedRose.items);

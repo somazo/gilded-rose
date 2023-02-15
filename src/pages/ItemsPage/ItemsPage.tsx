@@ -11,7 +11,7 @@ const Heading = styled.div`
 `;
 
 const Content = styled.div`
-  flex: 3;
+  flex: 5;
 `;
 
 export const ItemsPage = () => {

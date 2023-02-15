@@ -5,9 +5,11 @@ export const Card = styled.div`
   border-radius: 8px;
   box-shadow: 1px 2px 2px #88888820;
   padding: 16px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  width: 25vw;
+  min-width: 25vw;
+  min-height: 50vh;
 `;
 
 export default Card;
