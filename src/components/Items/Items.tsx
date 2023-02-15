@@ -1,4 +1,5 @@
-import { useGildedRose } from "../context";
+import { useGildedRose } from "../../context";
+import { ItemCard } from "../ItemCard";
 
 export const Items = () => {
   const { items, update } = useGildedRose();
@@ -6,11 +7,12 @@ export const Items = () => {
   return (
     <div>
       {items.map((item) => (
-        <div key={item.name}>
-          <div>{item.name}</div>
-          <div>{item.sellIn}</div>
-          <div>{item.quality}</div>
-        </div>
+        <ItemCard
+          key={item.name}
+          title={item.name}
+          sellIn={item.sellIn}
+          quality={item.quality}
+        />
       ))}
       <button
         onClick={() => {

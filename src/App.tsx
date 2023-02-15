@@ -1,13 +1,14 @@
 import "./App.css";
-import { Items } from "./components";
 import { GildedRoseProvider } from "./context";
+import { LandingPage } from "./pages";
+import { ItemsPage } from "./pages/ItemsPage";
 
 function App() {
   return (
     <div className="App">
       <GildedRoseProvider>
-        <h1>Welcome to Gilded Rose.</h1>
-        <Items />
+        <LandingPage />
+        <ItemsPage />
       </GildedRoseProvider>
     </div>
   );
