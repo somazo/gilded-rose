@@ -2,10 +2,10 @@ import { useGildedRose } from "../../context";
 import { ItemCard } from "../ItemCard";
 
 export const Items = () => {
-  const { items, update } = useGildedRose();
+  const { items } = useGildedRose();
 
   return (
-    <div>
+    <>
       {items.map((item) => (
         <ItemCard
           key={item.name}
@@ -14,14 +14,7 @@ export const Items = () => {
           quality={item.quality}
         />
       ))}
-      <button
-        onClick={() => {
-          update();
-        }}
-      >
-        update
-      </button>
-    </div>
+    </>
   );
 };
 
