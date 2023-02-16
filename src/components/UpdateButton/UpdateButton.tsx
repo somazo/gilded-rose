@@ -6,6 +6,16 @@ const Container = styled.div`
   position: fixed;
   right: 0;
   margin: 16px;
+
+  @media only screen and (max-width: 768px) {
+    left: 0;
+    bottom: 0;
+    right: initial;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 12px;
+  }
 `;
 
 const Button = styled(motion.div)`
@@ -15,6 +25,14 @@ const Button = styled(motion.div)`
   padding: 16px;
   cursor: pointer;
   background: white;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 12px;
+  }
 `;
 
 export const UpdateButton = () => {

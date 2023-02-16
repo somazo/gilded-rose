@@ -8,6 +8,14 @@ const Heading = styled.div`
   position: static;
   align-self: start;
   flex: 1;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 36px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 36px;
+  }
 `;
 
 const Content = styled.div`
@@ -21,6 +29,10 @@ const Content = styled.div`
 const ButtonContainer = styled.div`
   margin: 32px;
   align-self: flex-end;
+
+  @media only screen and (max-width: 768px) {
+    margin: 16px;
+  }
 `;
 
 export const ItemsPage = () => {

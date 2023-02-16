@@ -23,7 +23,7 @@ export const Items = () => {
   const { items } = useGildedRose();
 
   return (
-    <Container whileHover={{ x: -10 }}>
+    <Container>
       <AnimatePresence>
         {items.map((item) => (
           <ItemCard

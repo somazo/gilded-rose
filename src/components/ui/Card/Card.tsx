@@ -11,6 +11,14 @@ export const Card = styled(motion.div)`
   text-align: left;
   min-width: 25vw;
   min-height: 50vh;
+
+  @media only screen and (max-width: 768px) {
+    min-width: 30vw;
+  }
+
+  @media only screen and (max-width: 512px) {
+    min-width: 50vw;
+  }
 `;
 
 export default Card;

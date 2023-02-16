@@ -15,6 +15,20 @@ const ValueText = styled.div`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
+
+  @media only screen and (max-width: 768px) {
+    input {
+      font-size: 20px;
+    }
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    input {
+      font-size: 16px;
+    }
+    font-size: 16px;
+  }
 `;
 
 const NameInput = styled.input`
@@ -22,10 +36,19 @@ const NameInput = styled.input`
   font-weight: bold;
   border: none;
   border-bottom: 1px solid black;
+  max-width: 100%;
 
   :focus,
   :active {
     outline: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 16px;
   }
 `;
 
@@ -40,6 +63,10 @@ const NumberInput = styled.input`
   :active {
     outline: none;
   }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 16px;
+  }
 `;
 
 const CardContent = styled.div`
@@ -50,6 +77,11 @@ const CardContent = styled.div`
 const PropertiesContainer = styled.div`
   flex: 1;
   margin-bottom: 16px;
+`;
+
+const SellInText = styled.div`
+  white-space: normal;
+  word-wrap: break-word;
 `;
 
 export const NewItemCard = () => {
@@ -64,7 +96,13 @@ export const NewItemCard = () => {
   }, [add, name, sellIn, quality]);
 
   return (
-    <Card>
+    <Card
+      initial={{ y: 50, opacity: 0 }}
+      exit={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+      viewport={{ once: true }}
+    >
       <Title>
         <NameInput
           value={name}
@@ -76,7 +114,7 @@ export const NewItemCard = () => {
       </Title>
       <CardContent>
         <PropertiesContainer>
-          <div>Item should be sold in:</div>
+          <SellInText>Item should be sold in:</SellInText>
           <ValueText>
             <NumberInput
               type="number"

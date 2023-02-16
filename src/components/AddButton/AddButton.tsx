@@ -16,6 +16,19 @@ export const AddButton = styled.button`
   :disabled {
     border: 1px solid #00000030;
   }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    input {
+      font-size: 16px;
+    }
+    font-size: 16px;
+  }
 `;
 
 export default AddButton;

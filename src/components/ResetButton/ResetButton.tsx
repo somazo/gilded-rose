@@ -8,6 +8,14 @@ const Button = styled(motion.div)`
   padding: 16px;
   cursor: pointer;
   background: white;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 12px;
+  }
 `;
 
 export const ResetButton = () => {

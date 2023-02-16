@@ -1,16 +1,28 @@
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { PageLayout } from "../../components";
 
 const Hero = styled.div`
   font-size: 72px;
   font-weight: bold;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 48px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 36px;
+  }
 `;
 
 const HeroContainer = styled.div`
   display: flex;
 
   gap: 32px;
+
+  @media only screen and (max-width: 512px) {
+    flex-direction: column;
+  }
 `;
 
 export const LandingPage = () => {
@@ -45,6 +57,3 @@ export const LandingPage = () => {
 };
 
 export default LandingPage;
-function useParallax(scrollYProgress: MotionValue<number>, arg1: number) {
-  throw new Error("Function not implemented.");
-}
