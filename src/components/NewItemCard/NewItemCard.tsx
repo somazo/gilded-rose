@@ -94,7 +94,16 @@ export const NewItemCard = () => {
             min={0}
             max={50}
             onChange={(e) => {
-              setQuality(parseInt(e.target.value));
+              const newValue = parseInt(e.target.value);
+              if (newValue > 50) {
+                setQuality(50);
+                return;
+              }
+              if (newValue < 0) {
+                setQuality(0);
+                return;
+              }
+              setQuality(newValue);
             }}
           />
         </PropertiesContainer>
