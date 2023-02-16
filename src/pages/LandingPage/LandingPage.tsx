@@ -2,6 +2,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { ItemsAction, PageLayout } from "../../components";
 
+const Welcome = styled.div`
+  font-size: 72px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 48px;
+  }
+
+  @media only screen and (max-width: 512px) {
+    font-size: 36px;
+  }
+`;
+
 const Hero = styled.div`
   font-size: 72px;
   font-weight: bold;
@@ -18,7 +30,7 @@ const Hero = styled.div`
 const HeroContainer = styled.div`
   display: flex;
 
-  gap: 32px;
+  gap: 16px;
 
   @media only screen and (max-width: 512px) {
     flex-direction: column;
@@ -41,7 +53,7 @@ export const LandingPage = () => {
           style={{ x, scale }}
           transition={{ duration: 1 }}
         >
-          <Hero>Welcome to</Hero>
+          <Welcome>Welcome to</Welcome>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
