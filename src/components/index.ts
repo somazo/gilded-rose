@@ -1,4 +1,5 @@
 export * from "./Items";
+export * from "./ItemsAction";
 export * from "./ItemCard";
 export * from "./NewItemCard";
 export * from "./UpdateButton";

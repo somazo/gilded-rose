@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
-import { PageLayout } from "../../components";
+import { ItemsAction, PageLayout } from "../../components";
 
 const Hero = styled.div`
   font-size: 72px;
@@ -52,6 +52,7 @@ export const LandingPage = () => {
           <Hero>Gilded Rose.</Hero>
         </motion.div>
       </HeroContainer>
+      <ItemsAction />
     </PageLayout>
   );
 };
