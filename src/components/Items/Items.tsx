@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useGildedRose } from "../../context";
 import { ItemCard } from "../ItemCard";
+import { NewItemCard } from "../NewItemCard";
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ export const Items = () => {
           quality={item.quality}
         />
       ))}
+      <NewItemCard key={items.length} />
     </Container>
   );
 };
