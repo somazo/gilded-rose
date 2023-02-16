@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Items, PageLayout } from "../../components";
+import { Items, PageLayout, ResetButton } from "../../components";
 
 const Heading = styled.div`
   font-size: 64px;
@@ -12,6 +12,14 @@ const Heading = styled.div`
 
 const Content = styled.div`
   flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const ButtonContainer = styled.div`
+  margin: 32px;
+  align-self: flex-end;
 `;
 
 export const ItemsPage = () => {
@@ -20,6 +28,9 @@ export const ItemsPage = () => {
       <Heading>Check out our items:</Heading>
       <Content>
         <Items />
+        <ButtonContainer>
+          <ResetButton />
+        </ButtonContainer>
       </Content>
     </PageLayout>
   );

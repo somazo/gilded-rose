@@ -10,8 +10,11 @@ const Container = styled.div`
   overflow: auto;
   white-space: nowrap;
   width: 100vw;
-  height: 100%;
   margin-left: 32px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Items = () => {
