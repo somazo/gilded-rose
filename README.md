@@ -1,6 +1,4 @@
-# codedazur-assessment
-
-This is my assessment for code d'azur.
+# gilded-rose
 
 ## Requirements
 
